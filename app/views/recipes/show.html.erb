@@ -2,15 +2,21 @@
 
 <div class="recipe-container">
   <p><strong>Preparation time :</strong> <%= @recipe.preparation_time %> hours</p>
-  <div>
-    <div>Public :</div>
-    <%= form_with model: @recipe, url: toggle_public_recipe_path(@recipe), method: :put, local: true do |form| %>
-      <div>
-      <%= form.submit 'Yes', class: "btn" %>
-       <%= form.submit 'No', class: "btn" %>
-    </div>
-    <% end %>
+
+  <%= form_for @recipe, url: toggle_public_recipe_path(@recipe), method: :patch, remote: true, authenticity_token: true, html: { class: 'toggle-form' } do |f| %>
+    <div class="slider-container">
+    <span class="switch-label">
+    <%= @recipe.public ? "Public" : "Private" %>
+    </span>
+    <label class="switch">  
+    <%= f.check_box :public, { class: "toggle-switch" }, 0, 1 %>
+      <span class="slider round"></span>
+    </label>
   </div>
+  <%= f.hidden_field :public, value: @recipe.public ? 0 : 1 %>
+  <%= f.submit 'Toggle', class: 'hidden-submit', style: 'display: none;' %>
+<% end %>
+
   <p><strong>Cooking time :</strong> <%= @recipe.cooking_time %> hours</p>
   <p><strong>Steps go here...</strong></p>
   <div>

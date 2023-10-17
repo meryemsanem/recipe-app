@@ -6,7 +6,7 @@ Rails.application.routes.draw do
 
   resources :recipes, except: :update do
     member do
-      put :toggle_public
+      patch :toggle_public
     end
 
     resources :recipe_foods, only: [:new, :create, :edit, :update, :destroy]
