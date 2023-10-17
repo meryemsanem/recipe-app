@@ -1,2 +1,49 @@
-<h1>Recipes#show</h1>
-<p>Find me in app/views/recipes/show.html.erb</p>
+<h1><%= @recipe.name %></h1>
+
+<div class="recipe-container">
+  <p><strong>Preparation time :</strong> <%= @recipe.preparation_time %> hours</p>
+  <div>
+    <div>Public :</div>
+    <%= form_with model: @recipe, url: toggle_public_recipe_path(@recipe), method: :put, local: true do |form| %>
+      <div>
+      <%= form.submit 'Yes', class: "btn" %>
+       <%= form.submit 'No', class: "btn" %>
+    </div>
+    <% end %>
+  </div>
+  <p><strong>Cooking time :</strong> <%= @recipe.cooking_time %> hours</p>
+  <p><strong>Steps go here...</strong></p>
+  <div>
+    <%= link_to 'Generate Shopping List', general_shopping_list_path, class: "recipe-button" %>
+    <% if @recipe.user == current_user %>
+      <%= link_to 'Add Ingredient', new_recipe_recipe_food_path(@recipe), class: "recipe-button" %>
+    <% end %>
+  </div>
+  <hr>
+
+  <div class="recipe-foods-container">
+ <table class="recipe-foods-table">
+  <thead>
+    <tr>
+      <th>Food</th>
+      <th>Measuring Unit</th>
+      <th>Value</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @recipe.recipe_foods.each do |recipe_food| %>
+     <tr>
+      <td><%= recipe_food.food.name %></td>
+      <td><%= recipe_food.food.measurement_unit %></td>
+      <td>$<%= recipe_food.food.price * recipe_food.quantity %></td>
+      <td>
+    <%= link_to 'Modify', update_recipe_food_path(@recipe, recipe_food) %>
+    <%= button_to 'Remove', recipe_recipe_food_path(@recipe, recipe_food), method: :delete%>
+  </td>
+</tr>
+    <% end %>
+  </tbody>
+</table>
+  </div>
+</div>

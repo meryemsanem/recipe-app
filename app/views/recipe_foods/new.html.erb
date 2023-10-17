@@ -1,2 +1,26 @@
-<h1>RecipeFoods#new</h1>
-<p>Find me in app/views/recipe_foods/new.html.erb</p>
+<h1>Add Ingredient to <%= @recipe.name %></h1>
+
+<div class="container">
+  <% if flash[:error].present? %>
+    <div>
+      <%= flash[:error] %>
+    </div>
+  <% end %>
+
+  <%= form_with scope: :recipe_food, url: recipe_recipe_foods_path do |form| %>
+    <div>
+      <%= form.label :food_id, "Food" %>
+      <%= form.collection_select :food_id, @foods, :id, :name, { prompt: "Select food item" } %>
+    </div>
+
+    <div>
+      <%= form.label :quantity, "Quantity" %>
+      <%= form.number_field :quantity %>
+    </div>
+
+    <div>
+      <%= form.submit "Add Ingredient" %>
+      <%= link_to "Cancel", recipe_path(@recipe) %>
+    </div>
+  <% end %>
+</div>
