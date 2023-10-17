@@ -41,7 +41,7 @@
     <% @recipe.recipe_foods.each do |recipe_food| %>
      <tr>
       <td><%= recipe_food.food.name %></td>
-      <td><%= recipe_food.food.quantity %></td>
+      <td><%= recipe_food.quantity %></td>
       <td>$<%= recipe_food.food.price * recipe_food.quantity %></td>
       <td>
        <%= link_to 'Modify', edit_recipe_recipe_food_path(@recipe, recipe_food), class: 'edit-btn' %>
