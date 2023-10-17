@@ -1,4 +1,4 @@
-<h1>Add Ingredient to <%= @recipe.name %></h1>
+<h1>Edit Recipe Food</h1>
 
 <div class="container">
   <% if flash[:error].present? %>
@@ -7,10 +7,10 @@
     </div>
   <% end %>
 
-  <%= form_with scope: :recipe_food, url: recipe_recipe_foods_path do |form| %>
+ <%= form_with model: @recipe_food, url: recipe_recipe_food_path(@recipe, @recipe_food), method: :patch do |form| %>
     <div>
       <%= form.label :food_id, "Food" %>
-      <%= form.collection_select :food_id, @foods, :id, :name, { prompt: "Select food item" } %>
+      <%= form.collection_select :food_id, @foods, :id, :name, { prompt: "Select new item" } %>
     </div>
 
     <div>
@@ -19,7 +19,7 @@
     </div>
 
     <div>
-      <%= form.submit "Add Ingredient" %>
+      <%= form.submit "Update Recipe Food" %>
       <%= link_to "Cancel", recipe_path(@recipe) %>
     </div>
   <% end %>

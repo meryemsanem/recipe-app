@@ -11,7 +11,6 @@
         <thead class="table-head">
           <tr class="food-head">
             <th>Food</th>
-            <th>quantity</th>
             <th>Measurement Unit</th>
             <th>Unit Price</th>
             <th>Actions</th>
@@ -23,7 +22,6 @@
               <td class="food-names">
                 <%= link_to food.name, food_url(current_user.id, food.id) %>
               </td>
-              <td><%= food.quantity %></td>
               <td><%= food.measurement_unit %></td>
               <td><span>$<%= food.price %></td></span>
               <td>

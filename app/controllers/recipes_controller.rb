@@ -30,6 +30,13 @@ class RecipesController < ApplicationController
     redirect_to recipes_path, notice: 'Recipe deleted successfully.'
   end
 
+  def toggle_public
+    @recipe = Recipe.find(params[:id])
+    @recipe.public = !@recipe.public
+    @recipe.save
+    redirect_to recipe_path(@recipe), notice: "The recipe is now #{@recipe.public ? 'public' : 'private'}"
+  end
+
   private
 
   def recipe_params
