@@ -3,8 +3,8 @@ class ShoppingListController < ApplicationController
     @recipe = current_user.recipes.find_by(id: params[:recipe_id])
 
     if @recipe.nil?
-      flash[:alert] = "Recipe not found"
-      redirect_to foods_path  
+      flash[:alert] = 'Recipe not found'
+      redirect_to foods_path
       return
     end
 
