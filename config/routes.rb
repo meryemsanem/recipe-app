@@ -9,8 +9,8 @@ Rails.application.routes.draw do
       put :toggle_public
     end
 
-     resources :recipe_foods, only: [:index, :new, :create, :destroy, :edit]
+    resources :recipe_foods, only: [:new, :create, :edit, :update, :destroy]
   end
 
-    get '/general_shopping_list', to: 'shopping_list#index', as: 'general_shopping_list'
+  get '/general_shopping_list', to: 'shopping_list#index', as: 'general_shopping_list'
 end
