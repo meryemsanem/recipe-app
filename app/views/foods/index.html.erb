@@ -1,7 +1,7 @@
 <div class="foods-container">
   <h1>Foods</h1>
   <div class="add-food-btn">
-    <%= link_to "Add food", new_user_food_path, class: "add-food" %>
+    <%= link_to "Add food", new_food_path, class: "add-food" %>
   </div>
   <div class="foods">
     <% if @foods.empty? %>
@@ -21,14 +21,14 @@
           <% @foods.each do |food| %>
             <tr class="custom-table-row">
               <td class="food-names">
-                <%= link_to food.name, user_food_url(current_user.id, food.id) %>
+                <%= link_to food.name, food_url(current_user.id, food.id) %>
               </td>
               <td><%= food.quantity %></td>
               <td><%= food.measurement_unit %></td>
               <td><span>$<%= food.price %></td></span>
               <td>
                 <%= button_to "Delete",
-                  user_food_path(current_user.id, food.id), method: :delete,
+                  food_path(food.id), method: :delete,
                   data: { confirm: "Delete food?" }, class: "delete-food" %>
               </td>
             </tr>

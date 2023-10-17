@@ -14,21 +14,16 @@ class FoodsController < ApplicationController
     @user = current_user
     @food = @user.foods.build(foods_params)
     if @food.save
-      redirect_to user_foods_path(@user)
+      redirect_to foods_path
     else
       render :new
     end
   end
 
-  def destroy
-    @user = current_user
+ def destroy
     @food = Food.find(params[:id])
-    if @food.destroy
-      flash[:notice] = 'Food deleted successfully'
-      redirect_to user_foods_path(@user)
-    else
-      flash[:alert] = 'Food was not deleted'
-    end
+    @food.destroy
+    redirect_to foods_url, notice: 'Food item was successfully deleted.'
   end
 
   private
