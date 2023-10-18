@@ -5,7 +5,7 @@
     <% @total_value = 0 %>
     <% @foods.each do |food| %>
       <% if @recipe_foods.key?(food.id) %>
-        <% calculated_quantity = @recipe_foods[food.id] - food.quantity %>
+        <% calculated_quantity = @recipe_foods[food.id].to_i - food.quantity.to_i %>
         <% if calculated_quantity > 0 %>
           <% @total_items += calculated_quantity %>
           <% @total_value += calculated_quantity * food.price %>
@@ -34,7 +34,7 @@
     <tbody>
       <% @foods.each do |food| %>
         <% if @recipe_foods.key?(food.id) %>
-          <% calculated_quantity = @recipe_foods[food.id] - food.quantity %>
+          <% calculated_quantity = @recipe_foods[food.id].to_i - food.quantity.to_i %>
           <% if calculated_quantity > 0 %>
             <tr class="row-data">
               <td><%= food.name %></td>
