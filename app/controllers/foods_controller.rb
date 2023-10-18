@@ -1,10 +1,8 @@
 class FoodsController < ApplicationController
   before_action :authenticate_user!
-
   def index
     @user = current_user
-
-    @foods = @user.foods.includes(:recipe_foods)
+    @foods = @user.foods.all
   end
 
   def show; end
@@ -15,25 +13,17 @@ class FoodsController < ApplicationController
 
   def create
     @user = current_user
-
     @food = @user.foods.build(foods_params)
-
     if @food.save
-
       redirect_to foods_path
-
     else
-
       render :new
-
     end
   end
 
   def destroy
     @food = Food.find(params[:id])
-
     @food.destroy
-
     redirect_to foods_url, notice: 'Food item was successfully deleted.'
   end
 

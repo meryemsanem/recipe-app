@@ -1,9 +1,10 @@
 class RecipeFoodsController < ApplicationController
   before_action :find_recipe
   before_action :find_recipe_food, only: %i[edit update destroy]
+
   def new
     @recipe_food = RecipeFood.new
-    @foods = Food.all.includes(:recipe_foods)
+    @foods = Food.all
   end
 
   def create
