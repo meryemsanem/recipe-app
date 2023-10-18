@@ -1,7 +1,6 @@
 class RecipesController < ApplicationController
   before_action :set_user
 
-  
   def index
     @recipes = @user.recipes.includes(:user) if user_signed_in?
   end
