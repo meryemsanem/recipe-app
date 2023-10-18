@@ -6,7 +6,6 @@ class Food < ApplicationRecord
   validates :price, presence: true
   validates :measurement_unit, presence: true
   validates :quantity, presence: true
-  
 
   def self.total_price
     sum(:price)
