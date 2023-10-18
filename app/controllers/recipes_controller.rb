@@ -1,13 +1,13 @@
 class RecipesController < ApplicationController
   before_action :set_user
 
+  
   def index
     @recipes = @user.recipes.includes(:user) if user_signed_in?
   end
 
   def show
-    @recipe = Recipe.find(params[:id])
-    @recipe_foods = @recipe.recipe_foods.includes(:food)
+    @recipe = Recipe.includes(recipe_foods: :food).find(params[:id])
   end
 
   def new
