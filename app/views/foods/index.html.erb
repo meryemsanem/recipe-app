@@ -12,6 +12,7 @@
           <tr class="food-head">
             <th>Food</th>
             <th>Measurement Unit</th>
+            <th>Quantity</th>
             <th>Unit Price</th>
             <th>Actions</th>
           </tr>
@@ -23,6 +24,7 @@
                 <%= link_to food.name, food_url(current_user.id, food.id) %>
               </td>
               <td><%= food.measurement_unit %></td>
+              <td><%= food.quantity %></td>
               <td><span>$<%= food.price %></td></span>
               <td>
                 <%= button_to "Delete",
