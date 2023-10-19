@@ -3,7 +3,7 @@ require 'rails_helper'
 RSpec.describe Recipe, type: :model do
   describe 'Validations' do
     it 'is valid with a name, preparation_time, cooking_time, and description' do
-      user = User.new(name: "Sample User", email: "email@email.com", password: "password")
+      user = User.new(name: 'Sample User', email: 'email@email.com', password: 'password')
       recipe = user.recipes.build(
         name: 'Sample Recipe',
         preparation_time: 0.5,
@@ -49,7 +49,7 @@ RSpec.describe Recipe, type: :model do
       expect(recipe).not_to be_valid
     end
   end
-    describe 'Associations' do
+  describe 'Associations' do
     it 'belongs to a user' do
       association = described_class.reflect_on_association(:user)
       expect(association.macro).to eq(:belongs_to)
@@ -67,7 +67,3 @@ RSpec.describe Recipe, type: :model do
     end
   end
 end
-
-
-
-
