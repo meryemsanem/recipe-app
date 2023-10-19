@@ -2,6 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  text-decoration: none;
 }
 
 .navbar {
@@ -94,4 +95,62 @@ p .alert {
   width: 300px;
   font-size: 16px;
   margin-top: 10px;
+}
+
+.foods-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.add-food-btn {
+  margin-left: 33rem;
+  font-size: 14px;
+  font-weight: 600;
+  border-radius: 10px;
+  padding: .3rem .4rem;
+  background-color: #fff;
+  border-bottom: 3px solid black;
+  border-right: 3px solid black;
+}
+
+.add-food {
+  color: #662549;
+}
+
+.header-food {
+  color: #662549;
+}
+
+.foods-table {
+  background-color: #F8F0E5;
+  box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.3);
+  border: 2px solid black;
+  padding-bottom: 3rem;
+}
+
+.table-head {
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.foods {
+  color: black;
+  font-size: 16px;
+}
+
+.delete-food {
+  font-size: 14px;
+  border-radius: 10px;
+  padding: .3rem .3rem;
+  background-color: rgba(0, 0, 0, 0.411);
+  color: white;
+  border: none;
+}
+
+.food-list {
+  margin-left: 17px;
+  color: black;
+  font-size: 16px;
 }
