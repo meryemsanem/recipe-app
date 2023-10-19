@@ -1,4 +1,4 @@
-<h1>Add Ingredient to <%= @recipe.name %></h1>
+<h1 class="new">Add Ingredient to <%= @recipe.name %></h1>
 
 <div class="container">
   <% if flash[:error].present? %>
@@ -8,19 +8,19 @@
   <% end %>
 
   <%= form_with scope: :recipe_food, url: recipe_recipe_foods_path do |form| %>
-    <div>
+    <div class="form-group">
       <%= form.label :food_id, "Food" %>
-      <%= form.collection_select :food_id, @foods, :id, :name, { prompt: "Select food item" } %>
+      <%= form.collection_select :food_id, @foods, :id, :name, { prompt: "Select food item" }, class: "input" %>
     </div>
 
     <div>
       <%= form.label :quantity, "Quantity" %>
-      <%= form.number_field :quantity %>
+      <%= form.number_field :quantity , class: "input" %>
     </div>
 
-    <div>
-      <%= form.submit "Add Ingredient" %>
-      <%= link_to "Cancel", recipe_path(@recipe) %>
+    <div class="form-group">
+      <%= form.submit "Add Ingredient" , class: "submit-btn-edit"%>
+      <%= link_to "Cancel", recipe_path(@recipe), class: "submit-btn-edit" %>
     </div>
   <% end %>
 </div>

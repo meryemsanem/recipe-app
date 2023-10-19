@@ -1,4 +1,5 @@
-<h1>New Food</h1>
+<div class ="add-food-container">
+<h1 class="new">Add New Food</h1>
 <div class="food-container-new">
 <%= form_with(model: @food, url: foods_path) do |form| %>
     <div class="form-food">
@@ -8,11 +9,11 @@
   </div>
   <div class="labelf">
     <%= form.label :measurement_unit %>
-    <%= form.text_field :measurement_unit %>
+    <%= form.text_field :measurement_unit,class: "name-1" %>
   </div>
   <div class="labelf">
   <%= form.label :quantity %>
-  <%= form.text_field :quantity %>
+  <%= form.text_field :quantity, class: "name-1" %>
 </div>
   <div class="labelf">
     <%= form.label :price %>
@@ -24,3 +25,4 @@
   </div>
 <% end %>
 <div>
+</div>
