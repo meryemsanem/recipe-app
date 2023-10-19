@@ -154,3 +154,53 @@ p .alert {
   color: black;
   font-size: 16px;
 }
+
+.h-center {
+text-align: center;
+margin-bottom: 10px;
+color: #662549;
+}
+
+.public-container {
+  display: grid;
+  grid-template-columns: repeat(2, 10rem);
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.name {
+  color: slateblue;
+  text-transform: capitalize;
+  font-size: 17px;
+}
+
+.shopping-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.shopping {
+  display: flex;
+  gap: 2rem;
+}
+
+.table-shopping {
+  background-color: #F8F0E5;
+  box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.3);
+  border: 2px solid black;
+  padding: 0 2rem 2.5rem;
+}
+
+.table-head {
+  color: #662549;
+}
+
+.f-name {
+  margin-right: 20px;
+}
+
+
