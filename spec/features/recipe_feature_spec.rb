@@ -5,7 +5,7 @@ RSpec.describe 'Recipes', type: :feature do
 
   context 'index' do
     before do
-      Recipe.create!(name: 'Recipe 1', description: 'Description 1', preparation_time: 0.5, cooking_time: 1, user: user)
+      Recipe.create!(name: 'Recipe 1', description: 'Description 1', preparation_time: 0.5, cooking_time: 1, user:)
       user.confirm
 
       visit new_user_session_path
@@ -42,7 +42,9 @@ RSpec.describe 'Recipes', type: :feature do
   end
 
   context 'show' do
-    let(:recipe) { Recipe.create!(name: 'Recipe 1', description: 'Description 1', preparation_time: 0.5, cooking_time: 1, user: user) }
+    let(:recipe) do
+      Recipe.create!(name: 'Recipe 1', description: 'Description 1', preparation_time: 0.5, cooking_time: 1, user:)
+    end
 
     before do
       user.confirm

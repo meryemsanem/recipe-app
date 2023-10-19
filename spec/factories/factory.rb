@@ -18,12 +18,12 @@ FactoryBot.define do
     description { 'Recipe Description' }
     preparation_time { 0.5 }
     cooking_time { 1 }
-    user { association :user } 
+    user { association :user }
   end
 
-    factory :recipe_food do
-    recipe { association :recipe } 
-    food { association :food }     
+  factory :recipe_food do
+    recipe { association :recipe }
+    food { association :food }
     quantity { 5 }
-end
+  end
 end

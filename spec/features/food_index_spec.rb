@@ -5,11 +5,11 @@ RSpec.describe 'Foods', type: :feature do
 
   context 'index' do
     before do
-      Food.create!(name: 'Food 1', 
-      price: 10,
-       measurement_unit: 'grams',
-        quantity: 2,
-         user: user)
+      Food.create!(name: 'Food 1',
+                   price: 10,
+                   measurement_unit: 'grams',
+                   quantity: 2,
+                   user:)
       user.confirm
 
       visit new_user_session_path
@@ -21,7 +21,7 @@ RSpec.describe 'Foods', type: :feature do
     it 'renders a list of foods' do
       visit foods_path
       expect(page).to have_content('Food 1')
-    end 
+    end
     it 'renders a list of foods' do
       visit foods_path
       expect(page).to have_content(10)
@@ -43,7 +43,7 @@ RSpec.describe 'Foods', type: :feature do
       expect(page).to have_selector('form[action="/foods"][method="post"]')
       expect(page).to have_field('food[name]')
       expect(page).to have_field('food[price]')
-    end 
+    end
     it 'renders the form' do
       visit new_food_path
       expect(page).to have_selector('form[action="/foods"][method="post"]')
