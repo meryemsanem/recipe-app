@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Recipes', type: :feature do
-  let(:user) { User.create!(name: 'Sample User', email: 'email@email.com', password: 'password') }
+  let(:user) { User.create!(name: 'Sample User', email: 'emaill@email.com', password: 'password') }
 
   context 'index' do
     before do
@@ -9,7 +9,7 @@ RSpec.describe 'Recipes', type: :feature do
       user.confirm
 
       visit new_user_session_path
-      fill_in 'Email', with: 'email@email.com'
+      fill_in 'Email', with: 'emaill@email.com'
       fill_in 'Password', with: 'password'
       click_on 'Log in'
     end
@@ -26,7 +26,7 @@ RSpec.describe 'Recipes', type: :feature do
       user.confirm
 
       visit new_user_session_path
-      fill_in 'Email', with: 'email@email.com'
+      fill_in 'Email', with: 'emaill@email.com'
       fill_in 'Password', with: 'password'
       click_on 'Log in'
     end
@@ -48,7 +48,7 @@ RSpec.describe 'Recipes', type: :feature do
       user.confirm
 
       visit new_user_session_path
-      fill_in 'Email', with: 'email@email.com'
+      fill_in 'Email', with: 'emaill@email.com'
       fill_in 'Password', with: 'password'
       click_on 'Log in'
     end
