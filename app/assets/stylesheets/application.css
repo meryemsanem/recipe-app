@@ -133,6 +133,7 @@ p .alert {
 .table-head {
   font-size: 16px;
   font-weight: 500;
+  color: #662549;
 }
 
 .foods {
@@ -193,10 +194,6 @@ p .alert {
   box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.3);
   border: 2px solid black;
   padding: 0 2rem 2.5rem;
-}
-
-.table-head {
-  color: #662549;
 }
 
 .f-name {
@@ -321,7 +318,6 @@ label {
   gap: 10px;
   display: flex;
   flex-direction: column;
-  align-items: cener;
   align-items: center;
 }
 
@@ -414,7 +410,7 @@ label {
   cursor: pointer;
 }
 
-.slider:before {
+.slider::before {
   content: '';
   position: absolute;
   width: 26px;
@@ -430,7 +426,7 @@ label {
   background-color: rgb(228, 73, 17);
 }
 
-.toggle-switch:checked + .slider:before {
+.toggle-switch:checked + .slider::before {
   transform: translateX(26px);
 }
 
