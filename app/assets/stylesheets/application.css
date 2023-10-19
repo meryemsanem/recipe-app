@@ -58,3 +58,40 @@ ul li {
   justify-content: center;
   align-items: center;
 }
+
+p .alert {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.new_user {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.input {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.field {
+  width: 300px;
+}
+
+.submit-btn {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  background-color: white;
+  border-radius: 10px;
+}
+
+.links-container {
+  width: 300px;
+  font-size: 16px;
+  margin-top: 10px;
+}
