@@ -1,0 +1,61 @@
+<h1 class="new"><%= @recipe.name %></h1>
+
+<div class="recipe-container-show">
+  <div class="slider-details-cont">
+    <div class="name-toggle">
+      <p><strong>Preparation time :</strong> <%= @recipe.preparation_time %> hours</p>
+      <p><strong>Cooking time :</strong> <%= @recipe.cooking_time %> hours</p>
+       <p><strong>Steps go here...</strong></p>
+    </div>
+
+    <div class="toggle-container">
+      <%= form_for @recipe, url: toggle_public_recipe_path(@recipe), method: :patch, remote: true, authenticity_token: true, html: { class: 'toggle-form' } do |f| %>
+        <div class="slider-container">
+          <span class="switch-label">
+            <%= @recipe.public ? "Public" : "Private" %>
+          </span>
+          <label class="switch">  
+            <%= f.check_box :public, { class: "toggle-switch" }, 0, 1 %>
+            <span class="slider round"></span>
+          </label>
+        </div>
+        <%= f.hidden_field :public, value: @recipe.public ? 0 : 1 %>
+        <%= f.submit 'Toggle', class: 'hidden-submit', style: 'display: none;' %>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="buttons">
+    <%= link_to 'Generate Shopping List', general_shopping_list_path, class: "recipe-button-show" %>
+    <% if @recipe.user == current_user %>
+      <%= link_to 'Add Ingredient', new_recipe_recipe_food_path(@recipe), class: "recipe-button-show" %>
+    <% end %>
+  </div>
+  <hr>
+
+  <div class="recipe-foods-container">
+    <table class="recipe-foods-table">
+      <thead>
+        <tr>
+          <th>Food</th>
+          <th>Quantity</th>
+          <th>Value</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @recipe.recipe_foods.each do |recipe_food| %>
+          <tr>
+            <td><%= recipe_food.food.name %></td>
+            <td><%= recipe_food.quantity %></td>
+            <td>$<%= recipe_food.food.price * recipe_food.quantity %></td>
+            <td class="buttonss">
+              <%= link_to 'Modify', edit_recipe_recipe_food_path(@recipe, recipe_food), class: 'edit-btn-show' %>
+              <%= button_to 'Remove', recipe_recipe_food_path(@recipe, recipe_food), method: :delete, class: 'remove-btn-show' %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>

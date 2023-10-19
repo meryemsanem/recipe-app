@@ -1,0 +1,33 @@
+<div class= "add-recipe-container">
+<h1 class="new">Add New Recipe</h1>
+
+<div class="recipe-container-new">
+  <%= form_with model: @recipe, url: recipes_path, method: :post, local: true do |form| %>
+    <div class="form-recipe">
+    <div class="form">
+      <%= form.label :name, class: "label" %>
+      <%= form.text_field :name, class: "inputtt" %>
+    </div>
+
+    <div class="form">
+      <%= form.label :preparation_time, "Preparation Time", class: "label" %>
+      <%= form.number_field :preparation_time, class: "inputtt", step: 0.5 %>
+    </div>
+
+    <div class="form">
+      <%= form.label :cooking_time, "Cooking Time", class: "label" %>
+      <%= form.number_field :cooking_time, class: "inputtt", step: 0.5 %>
+    </div>
+
+    <div class="form">
+      <%= form.label :description, class: "label" %>
+      <%= form.text_area :description, class: "inputtt" %>
+    </div>
+
+    <div>
+      <%= form.submit "Create Recipe", class: "recipe-btn" %>
+    </div>
+    </div>
+  <% end %>
+</div>
+</div>

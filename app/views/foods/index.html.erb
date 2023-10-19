@@ -1,0 +1,40 @@
+<div class="foods-container">
+  <h1 class="header-food">Foods</h1>
+  <button  class="add-food-btn">
+    <%= link_to "Add food", new_food_path, class: "add-food" %>
+  </button>
+  <div class="foods">
+    <% if @foods.empty? %>
+      <p>No foods available.</p>
+    <% else %>
+      <table class="foods-table foodstuff">
+        <thead class="table-head">
+          <tr class="food-head">
+            <th class="col">Food</th>
+            <th>Measurement Unit</th>
+            <th>Quantity</th>
+            <th>Unit Price</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @foods.each do |food| %>
+            <tr class="custom-table-row">
+              <td class="food-names">
+                <%= link_to food.name, food_url(current_user.id, food.id), class: "food-list" %>
+              </td>
+              <td><%= food.measurement_unit %></td>
+              <td><%= food.quantity %></td>
+              <td><span>$<%= food.price %></td></span>
+              <td>
+                <%= button_to "Delete",
+                  food_path(food.id), method: :delete,
+                  data: { confirm: "Delete food?" }, class: "delete-food" %>
+              </td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    <% end %>
+  </div>
+</div>
