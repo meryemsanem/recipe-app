@@ -1,16 +1,16 @@
 <div class="foods-container">
-  <h1>Foods</h1>
-  <div class="add-food-btn">
+  <h1 class="header-food">Foods</h1>
+  <button  class="add-food-btn">
     <%= link_to "Add food", new_food_path, class: "add-food" %>
-  </div>
+  </button>
   <div class="foods">
     <% if @foods.empty? %>
       <p>No foods available.</p>
     <% else %>
-      <table class="foods-table">
+      <table class="foods-table foodstuff">
         <thead class="table-head">
           <tr class="food-head">
-            <th>Food</th>
+            <th class="col">Food</th>
             <th>Measurement Unit</th>
             <th>Quantity</th>
             <th>Unit Price</th>
@@ -21,7 +21,7 @@
           <% @foods.each do |food| %>
             <tr class="custom-table-row">
               <td class="food-names">
-                <%= link_to food.name, food_url(current_user.id, food.id) %>
+                <%= link_to food.name, food_url(current_user.id, food.id), class: "food-list" %>
               </td>
               <td><%= food.measurement_unit %></td>
               <td><%= food.quantity %></td>
