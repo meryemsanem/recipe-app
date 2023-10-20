@@ -21,6 +21,7 @@
   - [⭐️ Show Your Support](#️-show-your-support)
   - [🙏 Acknowledgments](#-acknowledgments)
   - [📝 License](#-license)
+  - [:rocket: Live Demo](#live-demo)
 
 <!-- ABOUT PROJECT -->
 
@@ -81,6 +82,12 @@ Install this project with:
 it will install the required gemfile for running the project
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- LIVE DEMO -->
+## :rocket: Live Demo <a name="live-demo"></a>
+-This is my project [Live Demo Link](https://food-app-6u84.onrender.com)
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 
 <!-- AUTHORS -->
 
