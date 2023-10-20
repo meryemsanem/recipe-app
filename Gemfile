@@ -10,6 +10,8 @@ gem 'devise'
 
 gem 'factory_bot_rails'
 
+gem 'pg', '~> 1.5', '>= 1.5.4'
+
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem 'sprockets-rails'
 
