@@ -6,21 +6,18 @@ default: &default
 development:
   <<: *default
   database: recipe_app_development
-  username: postgres
-  password: meryem99
+  username: dee
+  password: Bbik244
 
 test:
   <<: *default
   database: recipe_app_test
-  username: postgres
-  password: meryem99
+  username: dee
+  password: Bbik244
 
 production:
   <<: *default
-<<<<<<< HEAD
-  url: <%= ENV['DATABASE_URL'] %>
-=======
   database: recipe_ueih
   username: recipe_ueih_user
   password: <%= ENV["RECIPE_APP_DATABASE_PASSWORD"] %>
->>>>>>> 2feaa42366a654c0ed15389e37da25a0f067a429
+
